@@ -7,7 +7,10 @@
 }
 
 :root {
-  --dark-color: #0a0a0a77;
+  --dark-color: rgba(255, 154, 158, 0.3);
+  --primary-pink: #ff9a9e;
+  --secondary-pink: #fecfef;
+  --accent-purple: #8e44ad;
 }
 
 body {
@@ -15,47 +18,183 @@ body {
   align-items: flex-end;
   justify-content: center;
   min-height: 100vh;
-  background-color: var(--dark-color);
+  background: linear-gradient(135deg, var(--primary-pink) 0%, var(--secondary-pink) 50%, var(--secondary-pink) 100%);
+  background-attachment: fixed;
   overflow: hidden;
   perspective: 1000px;
+  position: relative;
+}
+
+/* Elementos decorativos flotantes */
+body::before {
+  content: '✨';
+  position: absolute;
+  top: 15%;
+  left: 8%;
+  font-size: 2.5rem;
+  animation: float 4s ease-in-out infinite;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+body::after {
+  content: '💖';
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  font-size: 3rem;
+  animation: float 5s ease-in-out infinite reverse;
+  opacity: 0.7;
+  z-index: 2;
+}
+
+/* Elementos decorativos adicionales */
+.flowers::before {
+  content: '🌸 ✨ 💕 ✨ 🌸';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  opacity: 0.5;
+  animation: sparkle 6s ease-in-out infinite;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.flowers::after {
+  content: '💫';
+  position: absolute;
+  bottom: 20%;
+  left: 15%;
+  font-size: 2rem;
+  animation: float 7s ease-in-out infinite;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(8deg);
+  }
 }
 
 #lyrics {
   font-size: 28px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: white;
+  font-family: 'Poppins', "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: #fff;
   position: absolute;
   margin-bottom: 20%;
-  z-index: 1;
+  z-index: 3;
   font-weight: bold;
   letter-spacing: 4px;
+  text-shadow: 
+    0 2px 4px rgba(142, 68, 173, 0.8),
+    0 4px 8px rgba(142, 68, 173, 0.6),
+    0 6px 12px rgba(142, 68, 173, 0.4);
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 
+      0 2px 4px rgba(142, 68, 173, 0.8),
+      0 4px 8px rgba(142, 68, 173, 0.6),
+      0 6px 12px rgba(142, 68, 173, 0.4);
+  }
+  50% {
+    text-shadow: 
+      0 2px 4px rgba(255, 107, 157, 0.9),
+      0 4px 8px rgba(255, 107, 157, 0.7),
+      0 6px 12px rgba(255, 107, 157, 0.5),
+      0 8px 16px rgba(255, 107, 157, 0.3);
+  }
 }
 @media only screen and (max-width: 600px) {
   /* Estilos específicos para dispositivos con un ancho máximo de 600px */
   #lyrics {
-      font-size: 20px; /* Reduce el tamaño del texto para dispositivos más pequeños */
-      margin-bottom: 580px;
-      letter-spacing: 3px;
+      font-size: 18px; /* Reduce el tamaño del texto para dispositivos más pequeños */
+      margin-bottom: 70%;
+      letter-spacing: 2px;
+      padding: 0 15px;
+      line-height: 1.4;
   }
+  
+  .titulo {
+      font-size: 16px;
+      margin-bottom: 120px;
+      letter-spacing: 4px;
+      line-height: 1.6;
+      padding: 0 15px;
+  }
+  
+  body::before {
+      font-size: 1.8rem;
+      top: 10%;
+      left: 5%;
+  }
+  
+  body::after {
+      font-size: 2rem;
+      top: 15%;
+      right: 5%;
+  }
+}
 
+@media only screen and (max-width: 360px) {
+  #lyrics {
+      font-size: 16px;
+      margin-bottom: 75%;
+      letter-spacing: 1px;
+  }
+  
+  .titulo {
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 100px;
+  }
 }
 .titulo {
   margin-bottom: 180px;
-  font-family: "Arial Narrow", Arial, sans-serif;
-  color: yellow;
+  font-family: 'Poppins', "Arial Narrow", Arial, sans-serif;
+  color: #fff;
   position: absolute;
   font-weight: bold;
-  letter-spacing: 10px;
+  letter-spacing: 8px;
   opacity: 0;
-  animation: fadeIn 3s ease-in-out forwards;
+  animation: fadeInGlow 4s ease-in-out forwards;
   text-align: center;
+  text-shadow: 
+    0 2px 4px rgba(142, 68, 173, 0.9),
+    0 4px 8px rgba(142, 68, 173, 0.7),
+    0 6px 12px rgba(142, 68, 173, 0.5);
+  z-index: 3;
+  max-width: 90%;
+  padding: 0 20px;
 }
-@keyframes fadeIn {
+
+@keyframes fadeInGlow {
   from {
     opacity: 0;
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 

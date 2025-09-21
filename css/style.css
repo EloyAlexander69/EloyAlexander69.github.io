@@ -5,20 +5,74 @@
     box-sizing: border-box; 
 }
 
+/* Elementos decorativos flotantes */
+body::before {
+    content: '✨';
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    font-size: 2rem;
+    animation: float 3s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+body::after {
+    content: '💖';
+    position: absolute;
+    top: 70%;
+    right: 15%;
+    font-size: 2.5rem;
+    animation: float 4s ease-in-out infinite reverse;
+    opacity: 0.8;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
 body {
     color: azure;
     width: 100%;
-    height: 82vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: black;
-    margin: 0; 
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    background-attachment: fixed;
+    margin: 0;
+    overflow-x: hidden; /* Evita scroll horizontal */
+    position: relative;
 }
 
 .images {
     position: relative;
+}
+
+/* Añadir más elementos decorativos */
+.images::before {
+    content: '🌸';
+    position: absolute;
+    top: -100px;
+    left: -50px;
+    font-size: 1.5rem;
+    animation: float 5s ease-in-out infinite;
+    opacity: 0.6;
+}
+
+.images::after {
+    content: '✨';
+    position: absolute;
+    bottom: -80px;
+    right: -30px;
+    font-size: 1.8rem;
+    animation: float 3.5s ease-in-out infinite reverse;
+    opacity: 0.7;
 }
 
 .img {
@@ -26,31 +80,79 @@ body {
     position: absolute;
     width: 150px;
     height: 150px;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 
+        0 8px 25px rgba(255, 107, 157, 0.3),
+        0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.img:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 12px 35px rgba(255, 107, 157, 0.4),
+        0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .left {
-    top: 450px;
-    left: 50px;
+    top: 40vh;
+    left: 5vw;
+    animation: floatLeft 6s ease-in-out infinite;
 }
 
 .right {
-    bottom: 120px;
-    right: 50px;
+    top: 60vh;
+    right: 5vw;
+    animation: floatRight 7s ease-in-out infinite;
+}
+
+@keyframes floatLeft {
+    0%, 100% {
+        transform: translateY(0px) rotate(-2deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(2deg);
+    }
+}
+
+@keyframes floatRight {
+    0%, 100% {
+        transform: translateY(0px) rotate(2deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(-2deg);
+    }
 }
 
 .botones {
-    padding: 9px;
-    border-radius: 80px;
+    padding: 12px 20px;
+    border-radius: 50px;
     background-color: transparent;
     border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.botones:hover {
+    transform: scale(1.05);
+}
+
+.botones:active {
+    transform: scale(0.98);
 }
 
 .botones a {
-    background-color: #0a2be9;
-    padding: 9px;
-    border-radius: 80px;
+    background: linear-gradient(45deg, #ff6b9d, #c44569);
+    padding: 12px 25px;
+    border-radius: 50px;
     text-decoration: none; 
-    color: #fff; 
+    color: #fff;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
 }
 
 .botones a:focus {
@@ -60,6 +162,62 @@ body {
 .greetings {
     font-size: 7rem;
     font-weight: 900;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Añadir un halo romántico alrededor del nombre */
+.greetings::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: radial-gradient(circle, rgba(255, 107, 157, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.greetings, .button, .description {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Añadir partículas de corazón dispersas */
+.greetings::after {
+    content: '💕 ✨ 🌟 💖 ✨ 💕';
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    opacity: 0.4;
+    animation: sparkle 4s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0.4;
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        opacity: 0.8;
+        transform: translateX(-50%) scale(1.1);
+    }
 }
 
 .greetings > span {
@@ -69,21 +227,29 @@ body {
 @keyframes glow {
     0%, 100% {
         color: #fff;
-        text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
+        text-shadow: 
+            0 0 10px #ff6b9d,
+            0 0 20px #ff6b9d,
+            0 0 40px #ff6b9d,
+            0 0 80px #ff6b9d;
     }
     10%, 90% {
-        color: #111;
-        text-shadow: none;
+        color: #8e44ad;
+        text-shadow: 
+            0 0 5px #c39bd3,
+            0 0 10px #c39bd3;
     }
 }
 
-.greetings > span:nth-child(1) { animation-delay: .2s; }
-.greetings > span:nth-child(2) { animation-delay: .4s; }
-.greetings > span:nth-child(3) { animation-delay: .6s; }
-.greetings > span:nth-child(4) { animation-delay: .8s; }
-.greetings > span:nth-child(5) { animation-delay: 1s; }
-.greetings > span:nth-child(6) { animation-delay: 1.2s; }
-.greetings > span:nth-child(7) { animation-delay: 1.4s; }
+.greetings > span:nth-child(1) { animation-delay: .2s; }  /* A */
+.greetings > span:nth-child(2) { animation-delay: .4s; }  /* L */
+.greetings > span:nth-child(3) { animation-delay: .6s; }  /* E */
+.greetings > span:nth-child(4) { animation-delay: .8s; }  /* X */
+.greetings > span:nth-child(5) { animation-delay: 1s; }   /* A */
+.greetings > span:nth-child(6) { animation-delay: 1.2s; } /* N */
+.greetings > span:nth-child(7) { animation-delay: 1.4s; } /* D */
+.greetings > span:nth-child(8) { animation-delay: 1.6s; } /* R */
+.greetings > span:nth-child(9) { animation-delay: 1.8s; } /* A */
 
 .description {
     font-size: 1.5rem;
@@ -97,18 +263,141 @@ body {
     color: #111;
 }
 
-@media screen and (max-width: 574px) {
+/* Estilos para tablets */
+@media screen and (max-width: 768px) {
     .greetings {
-        font-size: 4rem;
-        font-weight: 800;
+        font-size: 5rem;
         text-align: center;
     }
     
-    .description {
-        font-size: 2rem;
+    .img {
+        width: 100px;
+        height: 100px;
     }
     
-    .button a {
+    .left {
+        top: 20vh;
+        left: 3vw;
+    }
+    
+    .right {
+        bottom: 15vh;
+        right: 3vw;
+    }
+}
+
+/* Estilos para móviles */
+@media screen and (max-width: 574px) {
+    body {
+        height: 100vh;
+        padding: 20px;
+        justify-content: center;
+    }
+    
+    .images {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        gap: 20px;
+    }
+    
+    .img {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+    }
+    
+    .left {
+        animation: floatLeft 4s ease-in-out infinite;
+    }
+    
+    .right {
+        animation: floatRight 5s ease-in-out infinite;
+    }
+    
+    .greetings {
+        font-size: 3.5rem;
+        font-weight: 800;
+        text-align: center;
+        margin: 20px 0;
+        line-height: 1.1;
+    }
+    
+    .description {
+        font-size: 1.2rem;
+        margin: 20px 0;
+        text-align: center;
+        padding: 0 20px;
+    }
+    
+    .button {
+        margin-top: 30px;
+    }
+    
+    .botones {
+        padding: 15px 25px;
+        min-height: 44px; /* Mínimo recomendado para touch */
+    }
+    
+    .botones a {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+        font-weight: 500;
+        display: inline-block;
+        min-width: 120px;
+        text-align: center;
+    }
+}
+
+/* Para pantallas medianas (tablets grandes / laptops pequeños) */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .img {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .left {
+        top: 35vh;
+        left: 4vw;
+    }
+    
+    .right {
+        top: 55vh;
+        right: 4vw;
+    }
+    
+    .greetings {
+        font-size: 6rem;
+    }
+}
+
+/* Para pantallas muy pequeñas */
+@media screen and (max-width: 360px) {
+    .greetings {
+        font-size: 2.8rem;
+    }
+    
+    .greetings > span {
+        display: inline-block;
+        margin: 0 1px;
+    }
+    
+    .description {
         font-size: 1rem;
+    }
+    
+    .img {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .images {
+        gap: 15px;
+        margin-bottom: 20px;
     }
 }

@@ -1,257 +1,414 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="icon" href="img/flowers.png" type="image/x-icon" />
-    <title>Feliz San Valetin</title>
-  </head>
-  <body class="container">
-    <h1 class="titulo">Feliz San Valetin</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta para el Día de la Madre</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <div class="night"></div>
-    <div class="decor-frame" aria-hidden="true"></div>
-    <div class="decor-dots" aria-hidden="true"></div>
-    <div class="decor-corners" aria-hidden="true"></div>
-    <div class="flowers">
-      <div class="flower flower--1">
-        <div class="flower__leafs flower__leafs--1">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__white-circle"></div>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
 
-          <div class="flower__light flower__light--1"></div>
-          <div class="flower__light flower__light--2"></div>
-          <div class="flower__light flower__light--3"></div>
-          <div class="flower__light flower__light--4"></div>
-          <div class="flower__light flower__light--5"></div>
-          <div class="flower__light flower__light--6"></div>
-          <div class="flower__light flower__light--7"></div>
-          <div class="flower__light flower__light--8"></div>
-        </div>
-        <div class="flower__line">
-          <div class="flower__line__leaf flower__line__leaf--1"></div>
-          <div class="flower__line__leaf flower__line__leaf--2"></div>
-          <div class="flower__line__leaf flower__line__leaf--3"></div>
-          <div class="flower__line__leaf flower__line__leaf--4"></div>
-          <div class="flower__line__leaf flower__line__leaf--5"></div>
-          <div class="flower__line__leaf flower__line__leaf--6"></div>
-        </div>
-      </div>
+        .container {
+            max-width: 600px;
+            width: 100%;
+            perspective: 1000px;
+        }
 
-      <div class="flower flower--2">
-        <div class="flower__leafs flower__leafs--2">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__white-circle"></div>
+        .letter-envelope {
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe4ed 100%);
+            border-radius: 20px;
+            padding: 60px 40px 40px 40px;
+            box-shadow: 
+                0 20px 60px rgba(255, 154, 158, 0.3),
+                0 0 40px rgba(142, 68, 173, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            position: relative;
+            animation: floatLetter 3s ease-in-out infinite;
+            border: 2px solid rgba(255, 154, 158, 0.3);
+        }
 
-          <div class="flower__light flower__light--1"></div>
-          <div class="flower__light flower__light--2"></div>
-          <div class="flower__light flower__light--3"></div>
-          <div class="flower__light flower__light--4"></div>
-          <div class="flower__light flower__light--5"></div>
-          <div class="flower__light flower__light--6"></div>
-          <div class="flower__light flower__light--7"></div>
-          <div class="flower__light flower__light--8"></div>
-        </div>
-        <div class="flower__line">
-          <div class="flower__line__leaf flower__line__leaf--1"></div>
-          <div class="flower__line__leaf flower__line__leaf--2"></div>
-          <div class="flower__line__leaf flower__line__leaf--3"></div>
-          <div class="flower__line__leaf flower__line__leaf--4"></div>
-        </div>
-      </div>
+        @keyframes floatLetter {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
 
-      <div class="flower flower--3">
-        <div class="flower__leafs flower__leafs--3">
-          <div class="flower__leaf flower__leaf--1"></div>
-          <div class="flower__leaf flower__leaf--2"></div>
-          <div class="flower__leaf flower__leaf--3"></div>
-          <div class="flower__leaf flower__leaf--4"></div>
-          <div class="flower__white-circle"></div>
+        .envelope-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            animation: shimmer 2s ease-in-out infinite;
+        }
 
-          <div class="flower__light flower__light--1"></div>
-          <div class="flower__light flower__light--2"></div>
-          <div class="flower__light flower__light--3"></div>
-          <div class="flower__light flower__light--4"></div>
-          <div class="flower__light flower__light--5"></div>
-          <div class="flower__light flower__light--6"></div>
-          <div class="flower__light flower__light--7"></div>
-          <div class="flower__light flower__light--8"></div>
-        </div>
-        <div class="flower__line">
-          <div class="flower__line__leaf flower__line__leaf--1"></div>
-          <div class="flower__line__leaf flower__line__leaf--2"></div>
-          <div class="flower__line__leaf flower__line__leaf--3"></div>
-          <div class="flower__line__leaf flower__line__leaf--4"></div>
-        </div>
-      </div>
+        @keyframes shimmer {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 154, 158, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(142, 68, 173, 0.6);
+            }
+        }
 
-      <div class="grow-ans" style="--d: 1.2s">
-        <div class="flower__g-long">
-          <div class="flower__g-long__top"></div>
-          <div class="flower__g-long__bottom"></div>
-        </div>
-      </div>
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
 
-      <div class="growing-grass">
-        <div class="flower__grass flower__grass--1">
-          <div class="flower__grass--top"></div>
-          <div class="flower__grass--bottom"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-          <div class="flower__grass__overlay"></div>
-        </div>
-      </div>
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #ff9a9e 0%, #e94b3c 50%, #d63031 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 0 0 30px rgba(255, 154, 158, 0.3);
+            animation: fadeInDown 1s ease-out;
+        }
 
-      <div class="growing-grass">
-        <div class="flower__grass flower__grass--2">
-          <div class="flower__grass--top"></div>
-          <div class="flower__grass--bottom"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--1"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--2"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--3"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--4"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--5"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--6"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--7"></div>
-          <div class="flower__grass__leaf flower__grass__leaf--8"></div>
-          <div class="flower__grass__overlay"></div>
-        </div>
-      </div>
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-      <div class="grow-ans" style="--d: 2.4s">
-        <div class="flower__g-right flower__g-right--1">
-          <div class="leaf"></div>
-        </div>
-      </div>
+        .decoration {
+            font-size: 2em;
+            letter-spacing: 10px;
+            margin: 20px 0;
+            animation: float 3s ease-in-out infinite;
+        }
 
-      <div class="grow-ans" style="--d: 2.8s">
-        <div class="flower__g-right flower__g-right--2">
-          <div class="leaf"></div>
-        </div>
-      </div>
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
 
-      <div class="grow-ans" style="--d: 2.8s">
-        <div class="flower__g-front">
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--1">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--2">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--3">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--4">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--5">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--6">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--7">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__leaf-wrapper flower__g-front__leaf-wrapper--8">
-            <div class="flower__g-front__leaf"></div>
-          </div>
-          <div class="flower__g-front__line"></div>
-        </div>
-      </div>
+        .date {
+            color: #d63031;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
 
-      <div class="grow-ans" style="--d: 3.2s">
-        <div class="flower__g-fr">
-          <div class="leaf"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--1"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--2"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--3"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--4"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--5"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--6"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--7"></div>
-          <div class="flower__g-fr__leaf flower__g-fr__leaf--8"></div>
-        </div>
-      </div>
+        .letter-content {
+            animation: fadeIn 1.5s ease-out;
+        }
 
-      <div class="long-g long-g--0">
-        <div class="grow-ans" style="--d: 3s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 2.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.4s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
 
-      <div class="long-g long-g--1">
-        <div class="grow-ans" style="--d: 3.6s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 3.8s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.2s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
+        .greeting {
+            font-size: 1.3em;
+            color: #d63031;
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-family: 'Great Vibes', cursive;
+            letter-spacing: 1px;
+        }
 
-      <div class="long-g long-g--2">
-        <div class="grow-ans" style="--d: 4s">
-          <div class="leaf leaf--0"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.4s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
+        .message {
+            color: #2d3436;
+            line-height: 1.8;
+            font-size: 1em;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
 
-      <div class="long-g long-g--3">
-        <div class="grow-ans" style="--d: 4s">
-          <div class="leaf leaf--0"></div>
+        .message p {
+            margin-bottom: 15px;
+            animation: slideIn 0.6s ease-out backwards;
+        }
+
+        .message p:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .message p:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .message p:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .message p:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .signature {
+            margin-top: 40px;
+            text-align: right;
+        }
+
+        .signature-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5em;
+            color: #d63031;
+            margin-top: 20px;
+        }
+
+        .from {
+            font-size: 0.9em;
+            color: #636e72;
+            margin-bottom: 10px;
+        }
+
+        .flowers-decoration {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            font-size: 2em;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .flower-icon {
+            animation: spin 4s linear infinite;
+            display: inline-block;
+        }
+
+        .flower-icon:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .flower-icon:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes spin {
+            0%, 100% {
+                transform: rotate(0deg) translateY(0px);
+            }
+            50% {
+                transform: rotate(10deg) translateY(-5px);
+            }
+        }
+
+        .envelope-bottom {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            font-size: 2.5em;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Decorative elements */
+        .corner-decoration {
+            position: absolute;
+            font-size: 1.5em;
+            opacity: 0.5;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .corner-decoration.top-left {
+            top: 15px;
+            left: 15px;
+            animation-delay: 0s;
+        }
+
+        .corner-decoration.top-right {
+            top: 15px;
+            right: 15px;
+            animation-delay: 0.5s;
+        }
+
+        .corner-decoration.bottom-left {
+            bottom: 15px;
+            left: 15px;
+            animation-delay: 1s;
+        }
+
+        .corner-decoration.bottom-right {
+            bottom: 15px;
+            right: 15px;
+            animation-delay: 1.5s;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .letter-envelope {
+                padding: 50px 25px 30px 25px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .greeting {
+                font-size: 1.1em;
+            }
+
+            .message {
+                font-size: 0.95em;
+                line-height: 1.6;
+            }
+
+            .signature-name {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 574px) {
+            .letter-envelope {
+                padding: 45px 20px 25px 20px;
+                border-radius: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.7em;
+            }
+
+            .greeting {
+                font-size: 1em;
+            }
+
+            .message {
+                font-size: 0.9em;
+                text-align: left;
+            }
+
+            .signature-name {
+                font-size: 1.7em;
+            }
+
+            .flowers-decoration {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .letter-envelope {
+                padding: 40px 15px 20px 15px;
+            }
+
+            .header h1 {
+                font-size: 1.4em;
+            }
+
+            .decoration {
+                font-size: 1.5em;
+                letter-spacing: 5px;
+            }
+
+            .message {
+                font-size: 0.85em;
+            }
+
+            .signature-name {
+                font-size: 1.4em;
+            }
+
+            .flowers-decoration {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="letter-envelope">
+            <div class="envelope-top">💌</div>
+
+            <div class="corner-decoration top-left">🌸</div>
+            <div class="corner-decoration top-right">💐</div>
+            <div class="corner-decoration bottom-left">🌷</div>
+            <div class="corner-decoration bottom-right">🌹</div>
+
+            <div class="header">
+                <h1>DÍA DE LA MADRE</h1>
+                <div class="decoration">💐 🌸 💐</div>
+                <div class="date">12 de Mayo de 2026</div>
+            </div>
+
+            <div class="letter-content">
+                <div class="greeting">Estimada Señorita,</div>
+
+                <div class="message">
+                    <p>En este especial Día de la Madre, quiero expresarte mi más profundo respeto y admiración por tu fortaleza extraordinaria. Cada día te despiertas con determinación para trabajar incansablemente, asegurándote de que nada le falte a tu hijo, a pesar de todos los desafíos emocionales y económicos que enfrentas.</p>
+
+                    <p>Tu dedicación es inquebrantable. Aunque la vida te presenta obstáculos y pruebas difíciles, nunca te rindes. Tu lucha diaria es un ejemplo de amor maternal genuino, de esa entrega sin condiciones que caracteriza a las grandes madres.</p>
+
+                    <p>No es fácil seguir adelante cuando las circunstancias son adversas, pero tú lo haces con dignidad y coraje. Tu hijo tiene en ti un ejemplo viviente de perseverancia, resiliencia y amor incondicional. Eres la razón de su fortaleza.</p>
+
+                    <p>Hoy celebramos tu valentía, tu esfuerzo diario y tu espíritu que nunca se rinde. Mereces todo lo hermoso de este mundo. Que este día esté lleno de paz, alegría y el descanso que tanto necesitas. Gracias por ser una madre tan extraordinaria.</p>
+                </div>
+
+                <div class="flowers-decoration">
+                    <span class="flower-icon">🌹</span>
+                    <span class="flower-icon">🌺</span>
+                    <span class="flower-icon">🌹</span>
+                </div>
+
+                <div class="signature">
+                    <div class="from">Con admiración y respeto,</div>
+                    <div class="signature-name">Tu Amigo/a de Trabajo</div>
+                </div>
+            </div>
+
+            <div class="envelope-bottom">💝</div>
         </div>
-        <div class="grow-ans" style="--d: 4.2s">
-          <div class="leaf leaf--1"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.4s">
-          <div class="leaf leaf--2"></div>
-        </div>
-        <div class="grow-ans" style="--d: 4.6s">
-          <div class="leaf leaf--3"></div>
-        </div>
-      </div>
     </div>
-    <script src="anim.js"></script>
-    <script src="main.js"></script>
-  </body>
+</body>
 </html>
